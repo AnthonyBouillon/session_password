@@ -13,8 +13,9 @@ session_start();
 </head>
 <body>
     <div class="container">
-        <h1>Bienvenue, votre adresse email est : <?= $_SESSION['email'] ?></h1>
+        <h1>Bienvenue : <?= $_SESSION['name'] . ' ' . $_SESSION['firstname'] ?></h1>
         <hr>
+        <p>Vous êtes à présent connecté</p>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>

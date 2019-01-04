@@ -14,18 +14,22 @@ require 'script_register.php';
 <body>
     <div class="container">
         <h1 class="text-center">Inscription</h1>
+        <p class="text-center"><a href="form_login.php">Connectez-vous ici</a></p>
+        <br>
+        <small class="text-success"><?= !empty($error['register']) ? $error['register'] : '' ?></small>
+        <small class="text-danger"><?= !empty($error['!register']) ? $error['!register'] : '' ?></small>
         <hr>
         <form acion="script_register.php" method="POST">
             <div class="row">
                 <div class="form-group col 6">
                     <label for="name">Name</label>
                     <input type="text" name="name" class="form-control" id="name" placeholder="name" pattern="[A-Za-z-àáâäçèéêëìíîïñòóôöùúûü -]{1,255}" required>
-                    <small id="n_error" class="text-danger"></small>
+                    <small id="n_error" class="text-danger"><?= !empty($error['tooLong_n']) ? $error['tooLong_n'] : '' ?></small>
                 </div>
                 <div class="form-group col 6">
                     <label for="firstname">Firstname</label>
                     <input type="text" name="firstname" class="form-control" id="firstname" placeholder="firstname" pattern="[A-Za-z-àáâäçèéêëìíîïñòóôöùúûü -]{1,255}" required>
-                    <small id="f_error" class="text-danger"></small>
+                    <small id="f_error" class="text-danger"><?= !empty($error['tooLong_f']) ? $error['tooLong_f'] : '' ?></small>
                 </div>
             </div>
 
@@ -34,17 +38,20 @@ require 'script_register.php';
                 <label for="email">Email address</label>
                 <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" required>
                 <small id="e_error" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <small class="text-danger"><?= !empty($error['tooLong_e']) ? $error['tooLong_e'] : '' ?></small>
+                <small class="text-danger"><?= !empty($error['already_email']) ? $error['already_email'] : '' ?></small>
             </div>
             <div class="form-group">
                 <label for="login">Login</label>
-                <input type="text" name="login" class="form-control" id="login" placeholder="login" pattern="[A-Za-z-àáâäçèéêëìíîïñòóôöùúûü@*/_ -]{1,255}" required>
-                <small id="l_error" class="text-danger"></small>
+                <input type="text" name="login" class="form-control" id="login" placeholder="login" pattern="[A-Za-z-àáâäçèéêëìíîïñòóôöùúûü@*/_0-9 -]{1,255}" required>
+                <small id="l_error" class="text-danger"><?= !empty($error['tooLong_l']) ? $error['tooLong_l'] : '' ?></small>
+                <small class="text-danger"><?= !empty($error['already_login']) ? $error['already_login'] : '' ?></small>
             </div>
             <div class="row">
                 <div class="form-group col 6">
                     <label for="password">Password</label>
                     <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
-                    <small id="password_not_c" class="text-danger"></small>
+                    <small id="password_not_c" class="text-danger"><?= !empty($error['!password_c']) ? $error['!password_c'] : '' ?></small>
                 </div>
                 <div class="form-group col 6">
                     <label for="confirm_password">Confirm password</label>
