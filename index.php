@@ -14,7 +14,7 @@ require 'script_register.php';
 <body>
     <div class="container">
         <h1 class="text-center">Inscription</h1>
-        <p class="text-center"><a href="form_login.php">Connectez-vous ici</a></p>
+        <p class="text-center"><a href="form_login.php" title="Page d'inscription">Connectez-vous ici</a></p>
         <br>
         <small class="text-success"><?= !empty($error['register']) ? $error['register'] : '' ?></small>
         <small class="text-danger"><?= !empty($error['!register']) ? $error['!register'] : '' ?></small>
